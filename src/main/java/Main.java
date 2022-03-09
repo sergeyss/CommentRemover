@@ -37,7 +37,7 @@ public class Main {
                 .build();
 
         CommentProcessor commentProcessor = new CommentProcessor(commentRemover);
-        //commentProcessor.start();
+        commentProcessor.start();
 
         removeTestFolders(externalPath);
     }
