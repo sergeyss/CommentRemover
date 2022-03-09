@@ -1,13 +1,7 @@
 package com.commentremover.app;
 
 import com.commentremover.exception.CommentRemoverException;
-import com.commentremover.processors.CSSFileProcessor;
-import com.commentremover.processors.HTMLFileProcessor;
-import com.commentremover.processors.JSPFileProcessor;
-import com.commentremover.processors.JavaFileProcessor;
-import com.commentremover.processors.JavaScriptFileProcessor;
-import com.commentremover.processors.PropertyFileProcessor;
-import com.commentremover.processors.XMLFileProcessor;
+import com.commentremover.processors.*;
 import com.commentremover.utility.CommentUtility;
 
 import java.io.IOException;
@@ -20,6 +14,7 @@ final class FileProcessRouter {
 
     private JavaFileProcessor javaFileProcessor;
     private JavaScriptFileProcessor javaScriptFileProcessor;
+    private KotlinFileProcessor kotlinFileProcessor;
     private PropertyFileProcessor propertyFileProcessor;
     private JSPFileProcessor jspFileProcessor;
     private CSSFileProcessor cssFileProcessor;
@@ -36,6 +31,10 @@ final class FileProcessRouter {
 
         if (commentRemover.isRemoveJava()) {
             javaFileProcessor = new JavaFileProcessor(commentRemover);
+        }
+
+        if (commentRemover.isRemoveKotlin()) {
+            kotlinFileProcessor = new KotlinFileProcessor(commentRemover);
         }
 
         if (commentRemover.isRemoveJavaScript()) {
@@ -84,6 +83,13 @@ final class FileProcessRouter {
                 if (commentRemover.isRemoveJavaScript()) {
                     javaScriptFileProcessor.setCurrentFilePath(currentFilePath);
                     javaScriptFileProcessor.replaceCommentsWithBlanks();
+                }
+                break;
+
+            case "kt":
+                if (commentRemover.isRemoveKotlin()) {
+                    kotlinFileProcessor.setCurrentFilePath(currentFilePath);
+                    kotlinFileProcessor.replaceCommentsWithBlanks();
                 }
                 break;
 

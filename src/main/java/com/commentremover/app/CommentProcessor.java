@@ -29,7 +29,7 @@ public class CommentProcessor {
         this.commentRemover = commentRemover;
         this.userInputHandler = new UserInputHandler(commentRemover);
         this.fileProcessRouter = new FileProcessRouter(commentRemover);
-        this.supportedExtensions = Arrays.asList("java", "js", "jsp", "html", "css", "xml", "properties");
+        this.supportedExtensions = Arrays.asList("java", "kt", "js", "jsp", "html", "css", "xml", "properties");
     }
 
     public void start() throws CommentRemoverException, StackOverflowError {

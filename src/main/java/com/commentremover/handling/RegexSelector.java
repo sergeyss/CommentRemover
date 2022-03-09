@@ -9,6 +9,7 @@ public class RegexSelector {
         switch (fileType) {
 
             case "js":
+            case "kt":
             case "java":
                 return RegexPatterns.getCommentRegexMultiAndSingleLine();
 

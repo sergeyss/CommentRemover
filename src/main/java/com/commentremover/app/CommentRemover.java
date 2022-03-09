@@ -10,6 +10,7 @@ public final class CommentRemover {
     private boolean removeXML;
     private boolean removeJSP;
     private boolean removeJava;
+    private boolean removeKotlin;
     private boolean removeProperties;
 
     private boolean removeTodos;
@@ -30,6 +31,7 @@ public final class CommentRemover {
         this.removeXML = commentRemoverBuilder.removeXML;
         this.removeJSP = commentRemoverBuilder.removeJSP;
         this.removeJava = commentRemoverBuilder.removeJava;
+        this.removeKotlin = commentRemoverBuilder.removeKotlin;
         this.removeProperties = commentRemoverBuilder.removeProperties;
         this.removeTodos = commentRemoverBuilder.removeTodos;
         this.removeMultiLines = commentRemoverBuilder.removeMultiLines;
@@ -63,6 +65,10 @@ public final class CommentRemover {
 
     public boolean isRemoveJava() {
         return removeJava;
+    }
+
+    public boolean isRemoveKotlin() {
+        return removeKotlin;
     }
 
     public boolean isRemoveProperties() {
@@ -109,6 +115,7 @@ public final class CommentRemover {
         private boolean removeXML = false;
         private boolean removeJSP = false;
         private boolean removeJava = false;
+        private boolean removeKotlin = false;
         private boolean removeProperties = false;
 
         private boolean removeTodos = true;
@@ -149,6 +156,11 @@ public final class CommentRemover {
 
         public CommentRemoverBuilder removeJava(boolean removeJava) {
             this.removeJava = removeJava;
+            return this;
+        }
+
+        public CommentRemoverBuilder removeKotlin(boolean removeKotlin) {
+            this.removeKotlin = removeKotlin;
             return this;
         }
 
@@ -211,6 +223,7 @@ public final class CommentRemover {
                 ", removeXML=" + removeXML +
                 ", removeJSP=" + removeJSP +
                 ", removeJava=" + removeJava +
+                ", removeKotlin=" + removeKotlin +
                 ", removeProperties=" + removeProperties +
                 ", removeTodos=" + removeTodos +
                 ", removeMultiLines=" + removeMultiLines +

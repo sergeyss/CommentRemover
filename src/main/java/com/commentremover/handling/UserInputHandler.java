@@ -28,6 +28,7 @@ public class UserInputHandler {
                 commentRemover.isRemoveXML() ||
                 commentRemover.isRemoveHTML() ||
                 commentRemover.isRemoveJava() ||
+                commentRemover.isRemoveKotlin() ||
                 commentRemover.isRemoveJavaScript() ||
                 commentRemover.isRemoveProperties();
 
