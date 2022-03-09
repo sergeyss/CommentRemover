@@ -17,6 +17,7 @@ public class Main {
             if (path.exists() && path.isDirectory())
                 externalPath = args[0];
         }
+        removeTestFolders(externalPath);
 
         CommentRemover commentRemover = new CommentRemover.CommentRemoverBuilder()
                 .removeJava(true)
@@ -38,8 +39,6 @@ public class Main {
 
         CommentProcessor commentProcessor = new CommentProcessor(commentRemover);
         commentProcessor.start();
-
-        removeTestFolders(externalPath);
     }
 
     private static void removeTestFolders(String path) throws IOException {
